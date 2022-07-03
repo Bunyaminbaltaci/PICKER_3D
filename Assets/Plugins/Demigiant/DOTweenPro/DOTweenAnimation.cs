@@ -3,17 +3,17 @@
 
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using DG.Tweening.Core;
+using Plugins.Demigiant.DOTween.Modules;
 using UnityEngine;
-#if true // UI_MARKER
 using UnityEngine.UI;
-#endif
 #if false // TEXTMESHPRO_MARKER
 using TMPro;
 #endif
 
 #pragma warning disable 1591
-namespace DG.Tweening
+namespace Plugins.Demigiant.DOTweenPro
 {
     /// <summary>
     /// Attach this to a GameObject to create a tween
@@ -581,7 +581,7 @@ namespace DG.Tweening
         /// </summary>
         public override void DOPlay()
         {
-            DOTween.Play(GetTweenTarget());
+            DG.Tweening.DOTween.Play(GetTweenTarget());
         }
 
         /// <summary>
@@ -589,7 +589,7 @@ namespace DG.Tweening
         /// </summary>
         public override void DOPlayBackwards()
         {
-            DOTween.PlayBackwards(GetTweenTarget());
+            DG.Tweening.DOTween.PlayBackwards(GetTweenTarget());
         }
 
         /// <summary>
@@ -597,7 +597,7 @@ namespace DG.Tweening
         /// </summary>
         public override void DOPlayForward()
         {
-            DOTween.PlayForward(GetTweenTarget());
+            DG.Tweening.DOTween.PlayForward(GetTweenTarget());
         }
 
         /// <summary>
@@ -605,7 +605,7 @@ namespace DG.Tweening
         /// </summary>
         public override void DOPause()
         {
-            DOTween.Pause(GetTweenTarget());
+            DG.Tweening.DOTween.Pause(GetTweenTarget());
         }
 
         /// <summary>
@@ -613,7 +613,7 @@ namespace DG.Tweening
         /// </summary>
         public override void DOTogglePause()
         {
-            DOTween.TogglePause(GetTweenTarget());
+            DG.Tweening.DOTween.TogglePause(GetTweenTarget());
         }
 
         /// <summary>
@@ -648,7 +648,7 @@ namespace DG.Tweening
                 if (Debugger.logPriority > 1) Debugger.LogNullTween(tween); return;
             }
             if (fromHere && isRelative) ReEvaluateRelativeTween();
-            DOTween.Restart(GetTweenTarget());
+            DG.Tweening.DOTween.Restart(GetTweenTarget());
         }
 
         /// <summary>
@@ -656,7 +656,7 @@ namespace DG.Tweening
         /// </summary>
         public override void DOComplete()
         {
-            DOTween.Complete(GetTweenTarget());
+            DG.Tweening.DOTween.Complete(GetTweenTarget());
         }
 
         /// <summary>
@@ -664,7 +664,7 @@ namespace DG.Tweening
         /// </summary>
         public override void DOKill()
         {
-            DOTween.Kill(GetTweenTarget());
+            DG.Tweening.DOTween.Kill(GetTweenTarget());
             tween = null;
         }
 
@@ -675,14 +675,14 @@ namespace DG.Tweening
         /// </summary>
         public void DOPlayById(string id)
         {
-            DOTween.Play(GetTweenTarget(), id);
+            DG.Tweening.DOTween.Play(GetTweenTarget(), id);
         }
         /// <summary>
         /// Plays all tweens with the given ID (regardless of their target gameObject)
         /// </summary>
         public void DOPlayAllById(string id)
         {
-            DOTween.Play(id);
+            DG.Tweening.DOTween.Play(id);
         }
 
         /// <summary>
@@ -690,7 +690,7 @@ namespace DG.Tweening
         /// </summary>
         public void DOPauseAllById(string id)
         {
-            DOTween.Pause(id);
+            DG.Tweening.DOTween.Pause(id);
         }
 
         /// <summary>
@@ -698,14 +698,14 @@ namespace DG.Tweening
         /// </summary>
         public void DOPlayBackwardsById(string id)
         {
-            DOTween.PlayBackwards(GetTweenTarget(), id);
+            DG.Tweening.DOTween.PlayBackwards(GetTweenTarget(), id);
         }
         /// <summary>
         /// Plays backwards all tweens with the given ID (regardless of their target gameObject)
         /// </summary>
         public void DOPlayBackwardsAllById(string id)
         {
-            DOTween.PlayBackwards(id);
+            DG.Tweening.DOTween.PlayBackwards(id);
         }
 
         /// <summary>
@@ -713,14 +713,14 @@ namespace DG.Tweening
         /// </summary>
         public void DOPlayForwardById(string id)
         {
-            DOTween.PlayForward(GetTweenTarget(), id);
+            DG.Tweening.DOTween.PlayForward(GetTweenTarget(), id);
         }
         /// <summary>
         /// Plays forward all tweens with the given ID (regardless of their target gameObject)
         /// </summary>
         public void DOPlayForwardAllById(string id)
         {
-            DOTween.PlayForward(id);
+            DG.Tweening.DOTween.PlayForward(id);
         }
 
         /// <summary>
@@ -746,7 +746,7 @@ namespace DG.Tweening
         public void DORewindAndPlayNext()
         {
             _playCount = -1;
-            DOTween.Rewind(GetTweenTarget());
+            DG.Tweening.DOTween.Rewind(GetTweenTarget());
             DOPlayNext();
         }
 
@@ -756,7 +756,7 @@ namespace DG.Tweening
         public void DORewindAllById(string id)
         {
             _playCount = -1;
-            DOTween.Rewind(id);
+            DG.Tweening.DOTween.Rewind(id);
         }
 
         /// <summary>
@@ -765,7 +765,7 @@ namespace DG.Tweening
         public void DORestartById(string id)
         {
             _playCount = -1;
-            DOTween.Restart(GetTweenTarget(), id);
+            DG.Tweening.DOTween.Restart(GetTweenTarget(), id);
         }
         /// <summary>
         /// Restarts all tweens with the given ID (regardless of their target gameObject)
@@ -773,7 +773,7 @@ namespace DG.Tweening
         public void DORestartAllById(string id)
         {
             _playCount = -1;
-            DOTween.Restart(id);
+            DG.Tweening.DOTween.Restart(id);
         }
 
         /// <summary>
@@ -781,14 +781,14 @@ namespace DG.Tweening
         /// </summary>
         public void DOKillById(string id)
         {
-            DOTween.Kill(GetTweenTarget(), id);
+            DG.Tweening.DOTween.Kill(GetTweenTarget(), id);
         }
         /// <summary>
         /// Kills all tweens with the given ID (regardless of their target gameObject)
         /// </summary>
         public void DOKillAllById(string id)
         {
-            DOTween.Kill(id);
+            DG.Tweening.DOTween.Kill(id);
         }
 
         #endregion
