@@ -42,15 +42,15 @@ namespace Managers
 
         private void SubscribeEvent()
         {
-            // // CoreGameEvents.Instance.OnChangeGameStates += OnChangeGameStates;
-            // CoreGameEvents.Instance.OnSaveGame += OnOnSaveGame;
+            CoreGameEvents.Instance.OnChangeGameStates += OnChangeGameStates;
+            CoreGameEvents.Instance.OnSaveGame += OnOnSaveGame;
         }
 
 
         private void UnsubscribeEvent()
         {
-            // // CoreGameEvents.Instance.OnChangeGameStates -= OnChangeGameStates;
-            // CoreGameEvents.Instance.OnSaveGame -= OnOnSaveGame;
+            CoreGameEvents.Instance.OnChangeGameStates -= OnChangeGameStates;
+            CoreGameEvents.Instance.OnSaveGame -= OnOnSaveGame;
         }
 
         private void OnDisable()

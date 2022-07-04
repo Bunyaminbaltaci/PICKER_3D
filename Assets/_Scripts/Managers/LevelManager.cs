@@ -5,6 +5,7 @@ using Events;
 using Extensions;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Managers
 {
@@ -27,8 +28,8 @@ namespace Managers
 
         #region SerializeField_Veriables
 
-        [SerializeField] private LevelClearLoaderController Levelcontroller;
-        [SerializeField] private Transform LevelHolder;
+        [SerializeField] private LevelClearLoaderController levelcontroller;
+        [SerializeField] private Transform levelHolder;
         #endregion
 
         #endregion
@@ -73,8 +74,8 @@ namespace Managers
 
         private Level _getLevelData()
         {
-            var newLevelData = _levelID % Resources.Load<LevelList>("Data/LevelList").Levels.Count;
-            return Resources.Load<LevelList>("Data/LevelList").Levels[newLevelData];
+            var newLevelData = _levelID % Resources.Load<CD_LevelList>("Data/LevelList").Levels.Count;
+            return Resources.Load<CD_LevelList>("Data/LevelList").Levels[newLevelData];
         }
 
         private int _getActiveLevel()
@@ -85,13 +86,13 @@ namespace Managers
 
         private void OnClearActiveLevel()
         {
-            Levelcontroller.ClearActiveLevel(LevelHolder);
+            levelcontroller.ClearActiveLevel(levelHolder);
         }
 
         private void OnLevelInitialize()
         {
-            var newLevelData = _levelID % Resources.Load<LevelList>("Data/LevelList").Levels.Count;
-            Levelcontroller.InitialzedLevel(newLevelData,LevelHolder);
+            var newLevelData = _levelID % Resources.Load<CD_LevelList>("Data/LevelList").Levels.Count;
+            levelcontroller.InitialzedLevel(newLevelData,levelHolder);
         }
     }
 }
