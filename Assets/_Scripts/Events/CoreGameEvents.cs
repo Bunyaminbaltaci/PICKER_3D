@@ -19,5 +19,10 @@ namespace Events
         public UnityAction OnRestartLevel = delegate { };
         public UnityAction OnPlay = delegate { };
         public UnityAction OnReset = delegate { };
+        
+        public UnityAction onSetCameraTarget = delegate { };
+        public UnityAction onStageAreaReached = delegate { };
+        public UnityAction onStageSuccessful = delegate { };
+    
     }
 }

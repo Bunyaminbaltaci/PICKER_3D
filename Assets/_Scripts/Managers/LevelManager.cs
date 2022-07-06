@@ -12,10 +12,10 @@ namespace Managers
     public class LevelManager : MonoSingleton<LevelManager>
     {
         #region Veriables
-
+        [Space(15)] [Header("Data")] 
         #region Public_Veriables
 
-        [Space(15)] [Header("Data")] public Level Data;
+        public Level Data;
         [HideInInspector] public int levelID => _levelID;
 
         #endregion
