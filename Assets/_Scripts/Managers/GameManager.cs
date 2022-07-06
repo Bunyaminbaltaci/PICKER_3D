@@ -10,10 +10,10 @@ namespace Managers
     public class GameManager : MonoSingleton<GameManager>
     {
         #region Veriables
-
+        [Space(15)] [Header("Data")]
         #region Public_Veriables
 
-        [Space(15)] public GameStates States;
+        public GameStates States;
 
         #endregion
 

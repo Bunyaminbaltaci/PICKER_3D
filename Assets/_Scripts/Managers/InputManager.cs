@@ -11,10 +11,10 @@ namespace Managers
     public class InputManager : MonoBehaviour
     {
         #region Veriables
-
+        [Space(15)] [Header("Data")]
         #region Public_Veriables
 
-        [Space(15)] [Header("Data")] public InputData Data;
+         public InputData Data;
 
         #endregion
 
